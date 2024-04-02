@@ -1,0 +1,385 @@
+;================================;
+;	SPC Generator
+;================================;
+
+#SPC
+{
+	#title "High in the Sky" ; ~ Ending Theme (Remix)
+	#game "Super Mario Land 1"
+	#author "Hirokazu Tanaka"
+	#comment "arr. Hooded Edge"
+	#length "auto"
+}
+
+;================================;
+;	THIS RIGHT HERE IS DEFINITELY IMPORTANT!!
+;================================;
+
+; To change the pitch of the song, replace the number after
+; ''VERSION'' to any number between 1 - 2.
+; This won't affect the percussion as it doesn't use the variables below.
+
+; this allows for awesome customization to fit your needs or your
+; preferences... but if you know your stuff, then you should be able
+; to go way beyond the limits I gave you here.
+
+;================================;
+;	Song Pitch
+;================================;
+
+	#define VERSION 1 ; Change Value between 1 - 2
+
+;================================;
+
+; 1 = Pitch will be on the e major (Original)
+
+; 2 = Pitch will be on the f major (Custom)
+
+;================================;
+;	Samples
+;================================;
+
+#path "SkyPopGoBrrrr"
+
+#SAMPLES
+{
+	"../optimized/00 SMW @0.brr"
+	"../optimized/01 SMW @1.brr"
+	"../optimized/02 SMW @2.brr"
+	"../optimized/03 SMW @3.brr"
+	"../optimized/04 SMW @4.brr"
+	"../optimized/05 SMW @8.brr"
+	"../optimized/06 SMW @22.brr"
+	"../optimized/07 SMW @5.brr"
+	"../optimized/08 SMW @6.brr"
+	"../EMPTY.brr"
+	"../optimized/0A SMW @9.brr"
+	"../optimized/0B SMW @10.brr"
+	"../optimized/0C SMW @13.brr"
+	"../optimized/0D SMW @14.brr"
+	"../optimized/0E SMW @29.brr"
+	"../optimized/0F SMW @21.brr"
+	"../optimized/10 SMW @12.brr"
+	"../optimized/11 SMW @17.brr"
+	"../optimized/12 SMW @15.brr"
+	"../EMPTY.brr"
+
+	"KMT Square.brr"
+	"Rudra Sawtooth.brr"
+	"MMX3 Overdrive.brr"
+	"Romantic Trumpet.brr"
+
+	"MM7 Pulse 18.75%.brr"
+	"BDH1 Saw Wave.brr"
+	"S3 Slap Bass II.brr"
+
+	"Yasui Snare.brr"
+	"DR-660 Kick.brr"
+	"R-8 Tom 2.brr"
+	"MM7 Hi-Hat 1.brr"
+	"R-8 Crash.brr"
+}
+
+;================================;
+;	Instruments
+;================================;
+
+#INSTRUMENTS
+{
+	"Yasui Snare.brr" $9F $F5 $B8 $15 $00 ; @30 snare
+	"DR-660 Kick.brr" $CF $FA $B8 $15 $00 ; @31 bass drum
+	"R-8 Tom 2.brr" $FF $F2 $B8 $10 $00 ; @32 tom
+	"MM7 Hi-Hat 1.brr" $FF $FB $B8 $0A $00 ; @33 closed hi-hat
+	"MM7 Hi-Hat 1.brr" $FF $F4 $B8 $0A $00 ; @34 open hi-hat
+	"R-8 Crash.brr" $9F $F2 $B8 $0A $00 ; @35 crash cymbal (c+1)
+	"R-8 Crash.brr" $9F $F3 $B8 $0A $00 ; @36 crash cymbal (c+4)
+
+	"KMT Square.brr" $9F $86 $B8 $04 $00 ; @37 square
+	"Rudra Sawtooth.brr" $FF $E6 $B8 $03 $F5 ; @38 sawtooth
+	"MMX3 Overdrive.brr" $FF $E4 $B8 $05 $00 ; @39 overdrive
+	"Romantic Trumpet.brr" $FD $E4 $B8 $01 $C0 ; @40 zunpet
+
+	"MM7 Pulse 18.75%.brr" $FF $EE $B8 $04 $01 ; @41 piano
+	"BDH1 Saw Wave.brr" $FD $E0 $B8 $03 $D0 ; @42 chord
+	"S3 Slap Bass II.brr" $FF $EC $B8 $05 $C0 ; @43 slap bass
+}
+
+;================================;
+;	Main Macros
+;================================;
+
+	"@echo = $F4 $03"
+	"%l = $F4 $01"
+
+	"($FA-3X) = $FA $03 $00"
+	"$XR- = $FA $02 $"
+		"$XR-R = $FA $02 $00"
+	
+	"@rest = r2"
+
+;================================;
+;	Instrument Macros
+;================================;
+
+	"@square = @37 v220 | $DE $0A $0A $1A"
+		"(900) = v160 | (A00)"
+		"(A00) = $FA $03 $0F"
+	"@sawtooth = @38 v255 | $DE $10 $0C $1F"
+		"(A10) = $FA $03 $0F"
+		"(F00) = $ED $7F $F0 ^2 | @38"
+		"(F05) = $ED $7F $F2 ^4. | @38"
+	"@overdrive = @39 v200 | $DE $16 $0D $2A"
+	"@ZUNpet = @40 v255 | $DE $20 $0C $1F | $FA $03 $5F"
+
+	"@pulse = @41 v205 | $DE $10 $0C $1F"
+	"@chord = @42 v200"
+	"@bass = @43 o4 v215"
+
+;================================;
+;	Percussion Macros
+;================================;
+
+	"@snare = @30 v235 y10"
+	"@kick = @31 v230 y10"
+	"@tom = @32 v230"
+
+		"(vol) = "
+	"@closed = @33 v220 y9"
+	"@open = @34 v220 y10"
+	"@crash = v255 y10 | $FA $03 $8F"
+		"@crash+ = @35 | @crash"
+		"@crash- = @36 | @crash"
+
+;================================;
+;	Echo Values
+;================================;
+
+	$EF $F8 $32 $32 ; OFF - #0, #1, #2
+	$F1 $05 $50 $01
+	$F4 $02
+
+;================================;
+;	DON'T MESS WITH THIS
+;	IF YOU DON'T KNOW WHAT YOU'RE DOING!!!
+;================================;
+
+#if VERSION == 1 ; Original
+;	$E4 $00 ; e major
+	"@mario = "
+	"@tatanga = "
+#endif
+
+#if VERSION == 2 ; Custom
+	$E4 $01 ; f major
+	"@mario = h0"
+	"@tatanga = h-1"
+#endif
+
+;================================;
+;	Extras
+;================================;
+
+	"CHANNEL # = #"
+
+;================================;
+;	Global Volume / Tempo
+;================================;
+	w105 t68
+;================================;
+
+;================================;
+	CHANNEL #0 | @tatanga
+;================================;
+
+o3 | l8
+[ @kick c16 ]8
+
+[[ (069)[ c r @snare c @kick c
+c16 c16 c ] c @snare c @kick ]]3
+(069) @snare c c @kick
+
+(000)[ c c @snare c @kick c16 c16
+c16 c16 c @snare c @kick c ]3
+[ @snare c @kick c ]3 @snare c16 c16 c16 c16 / @kick
+
+(000)3 (001)[ c c @snare c @kick c16 c16
+c16 c16 c @snare c c @kick ]
+(000)3 (002)[ c c @snare c @kick c16 c16
+c16 c16 c @snare c16 c16 c @kick ]
+(000)3 (001)
+(000)3 c c @snare c @kick c16 c16
+c16 c16 @snare c c c16 c16 @kick
+
+(004)[ c c @snare c @kick c16 c16
+c16 c16 c c @snare c @kick ] (000)
+(004) (001)
+(004) (000)
+(004) (002)
+
+(000)2
+[ @snare c @kick c ]3 @snare c16 c16 c16 c16
+
+;================================;
+	CHANNEL #1 | @tatanga
+;================================;
+
+@tom o3 | l16
+y14 b+ y13 b+ y12 b+ y11 b+ y10 a+ y9 g+ y8 f+ y7 e > @closed
+
+[[ (169)[ c8 c8 @open c8 @closed c8
+c c c8 @open c8 @closed ] c8 ]]3
+(169) c c
+(115)[ c q7E c q7F @open c8 @closed ]12
+[ @open c8 @closed c q7E c q7F ]4 @echo /
+
+[[ (105)[ @crash- c+4. ($FA-3X) @echo @closed c q7E c q7F ]
+(100)[ @open c @closed q7E c q7F c q7E c q7F @open c8 @closed c q7E c q7F ]15 @echo ]]2
+
+(105) (110)[ c q7E c q7F c8 @open c8 @closed c q7E c q7F ]2
+(115)2
+[[ (110)3 (115)2 ]]3 @echo
+
+(105) (110) @echo
+(105) (100)
+@echo [ @crash- c+4 ]4
+
+;================================;
+	CHANNEL #2 | @tatanga
+;================================;
+
+o3
+r4 @snare c16 c16 c16 c16 @mario
+
+@bass | l8
+(200)[ < a a > a a ]7
+< a a > a a16 a16
+< (210)[ e8 > e16 e16 < ]16 /
+
+l16
+[[ (210)4 $XR-FF (210)4
+$XR-FE (210)4 $XR-05 (210)4 $XR-R
+(215)[ a a > a a < ]4 $XR-FF (215)4
+$XR-FD (215)4 $XR-02 (215)4 $XR-R ]]2
+
+(220)[ a q79 a q7F a8 > a8 a8 ]4
+$XR-FF (220)2 $XR-FD (220) $XR-02 (220) $XR-R
+(220)4 $XR-FF (220)2 $XR-FE (220)4 $XR-R
+[ c- c- c- c- e e g+ g+ ]2 [ c- c- c- c- d+ d+ f+ f+ ]2
+
+;================================;
+	CHANNEL #3 | @rest
+;================================;
+
+@square o5 y9 | (A00) | l4
+q7C c+ < e a > (300)[ c+ d+ < f+ b > d+
+e < a > c+ e f+ c- d+ ] f+ ($FA-3X)
+(305)[ g+ c- e g+ a c e a ]2 q7F /
+
+@sawtooth | (A10) | l8
+[ g+4 q79 g+ q7F e4 q79 e q7F c-4 q79 c- q7F
+f+ q79 f+ q7F a q79 a q7F g+ f+ e1^ (F00) r2 
+g+4 q79 g+ q7F e4 q79 e q7F c-4 e2 q79 e q7F
+d+ e f+2 q79 f+ q7F c+2 d+2^ (F05) ($FA-3X) ]2
+
+@overdrive | l2
+q7E (320)[ e. d+8 e8 f+ c- 
+g+. f+8 g+8 ] a4 c+4 e4 d+4 
+(320) b4
+
+@ZUNpet
+q7F c4 e4 g4 a b+ g+1 f+2 (F00)
+
+;================================;
+	CHANNEL #4 | @rest
+;================================;
+
+@chord o4 y7 | l1
+q7C c+ d+ e2 e2 f+
+e e g+ a @echo / @echo
+
+@chord y7 | @mario | $DF | ($FA-3X)
+(400)[ g+ f+ f+ e
+c+ c- c+ f+ ]
+
+@sawtooth y12 | l8
+> q7F e4 q79 e q7F < b4 q79 b q7F g+4 q79 g+ q7F >
+d+ q79 d+ q7F f+ q79 f+ q7F e d+ c-1^ (F00) r2
+e4 q79 e q7F < b4 q79 b q7F g+4 b2 q79 b q7F >
+c- c+ d+2 q79 d+ q7F < a+2 > c-2^ (F05)
+
+@overdrive y12 | l2
+q7E (420)[ c+. c-8 c+8 d+ < f+ >
+e. d+8 e8 ] f+4 < a4 > c+4 c-4
+(420) g4
+
+@ZUNpet
+q7F < a4 > c4 d4 f a e1 d+2 ($FA-3X)
+
+@tom o3 | @tatanga | l16
+@echo y7 b+ y8 b+ y9 b+ y10 b+ y11 a+ y12 g+ y13 f+ y14 e
+
+;================================;
+	CHANNEL #5 | @rest
+;================================;
+
+@chord o3 y13 | l1
+q7C a b > c+2 c+2 d+ 
+c- c e e /
+
+y13
+(500)[ e d+ d c+ 
+< a g+ a+ > d+ ]
+y7
+(400)
+
+e f+ e f+2 f+2
+e f+ e g
+f g+ f+
+
+;================================;
+	CHANNEL #6 | @rest
+;================================;
+
+@chord o3 y11 | l1
+q7C e f+ g+2 a2 a 
+g+ a b b+ /
+
+y11
+(600)[ b b a a e e f+ b ]
+y13
+(500) >
+
+c+ c+ c- c+2 d+2 
+c+ c+ c- e
+c e d+
+
+;================================;
+	CHANNEL #7 | @rest @tatanga
+;================================;
+
+@crash+ c+2. ($FA-3X)
+
+@square o5 (900) y11 | @mario | l4
+q7C r8. (300) f+16 ($FA-3X)
+
+@square y12
+[ e < g+ b > e e < a > c e ]2 /
+
+@pulse o4 y12
+c- e g+ b > d+ f+ d+ c-
+< d f+ a > c+ e a e c+
+< e a > c+ e g+ > c+ < g+ e
+< f+ a+ > c+ e d+ c- f+ b
+
+@chord o3 y11 | $DF | l1
+(600)
+
+a a g+ a2 b2 
+a a g+ b 
+a b b
+
+;================================;
+;	AddmusicK 1.0.6
+;================================;
+
+#amk 2
