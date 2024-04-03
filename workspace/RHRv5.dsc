@@ -124,6 +124,26 @@
 501	0	Block that kills the player (even on yoshi), is passable for sprites and kills on wall running.
 502	0	A block that is passable by sprites. To Mario, it will obey the Act as setting.
 570	0	Will increase the A button ammo.
+1003	0	A frozen block that disappears when thawed.
+1004	0	A frozen coin.
+1005	0	A frozen multiple coin block.
+1006	0	A frozen note block.
+1007	0	A frozen ON-OFF block.
+1009	0	A frozen block that thaws into the previous map16 tile.
+100a	0	A frozen block that thaws into the next map16 tile.
+1013	0	A frozen block that gives a coin.
+1014	0	A frozen version of tile 12F.
+1015	0	The top left of a 32x32 ice block that disappears when thawed.
+1016	0	The top right of a 32x32 ice block that disappears when thawed.
+1017	0	The top of a frozen Yoshi coin.
+1018	0	The top left of a 32x32 ice block that splits when thawed.
+1019	0	The top right of a 32x32 ice block that splits when thawed.
+1023	0	A frozen version of sprite 3E.
+1025	0	The bottom left of a 32x32 ice block that disappears when thawed.
+1026	0	The bottom right of a 32x32 ice block that disappears when thawed.
+1027	0	The bottom of a frozen Yoshi coin.
+1028	0	The bottom left of a 32x32 ice block that splits when thawed.
+1029	0	The bottom right of a 32x32 ice block that splits when thawed.
 00 0 Tile that can be used with Lunar Magic's Layer 3 tide Act As feature.
 201 0 Tile that can be used with Lunar Magic's Layer 3 tide Act As feature.
 202 0 Tile that can be used with Lunar Magic's Layer 3 tide Act As feature.

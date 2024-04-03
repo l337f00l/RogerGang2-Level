@@ -1,7 +1,7 @@
 ;================================;
 ;quickass autowalk by mathos edited by Tattletale
 ;================================;
-!Speed = $25    ; player x speed: see https://www.smwcentral.net/?p=nmap&m=smwram#7E007B for details
+!Speed = $27    ; player x speed: see https://www.smwcentral.net/?p=nmap&m=smwram#7E007B for details
 !Direction = 1  ; 1 = right, 0 = left : see https://www.smwcentral.net/?p=nmap&m=smwram#7E0076 for details
                 ; make sure it's coherent with your speed !
 
