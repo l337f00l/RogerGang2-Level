@@ -8,11 +8,11 @@
 
 ;Controller buttons currently held down. Format: byetUDLR.
 ;b = A or B; y = X or Y; e = select; t = Start; U = up; D = down; L = left, R = right.
-!HeldDownDisabler15 = %00001111
+!HeldDownDisabler15 = %00001010
 
 ;Controller buttons newly pressed this frame. Format: byetUDLR.
 ;b = B only; y = X or Y; e = select; t = Start; U = up; D = down; L = left, R = right.
-!NewlyPressedDisabler16 = %00001111
+!NewlyPressedDisabler16 = %00001010
        
 ;Controller buttons currently held down. Format: axlr----.
 ;a = A; x = X; l = L; r = R, - = null/unused.

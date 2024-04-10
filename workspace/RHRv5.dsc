@@ -123,6 +123,10 @@
 500	0	Sprite only triangle, will bounce kicked sprites if they're going rightward
 501	0	Block that kills the player (even on yoshi), is passable for sprites and kills on wall running.
 502	0	A block that is passable by sprites. To Mario, it will obey the Act as setting.
+504	0	Puts the player in gliding state if it has cape.
+506	0	Acts as 25 if a specific switch is active.
+507	0	Acts as 25 if a specific switch isn't active.
+508	0	Stops Mario from flying.
 570	0	Will increase the A button ammo.
 1003	0	A frozen block that disappears when thawed.
 1004	0	A frozen coin.

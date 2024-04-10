@@ -100,3 +100,9 @@ E0 0112 1,16,1D6 3,32,1D6 0,48,1C4 16,48,1C5 0,64,1D4 16,64,1D5 12,-10,1D6 24,-2
 0D 0022 0,0,34 16,0,35 16,16,45 0,16,44
 41 0020 Extra Byte 1 is the sprite number.\n Extra Byte 2 is the status the sprite will spawn in.\n Extra Byte 3 is the speed sprites will spawn in. For a sprite to stay at a kicked status when spawned the min speed is 21.\n Extra Byte 4 is the extra bits for the sprite spawned 0 and 1 are for normal sprites 2 and 3 for custom sprites.\n Extra Byte 5-8 are the Extra Bytes 1-4 for the spawned sprite.
 41 0022 0,0,C4
+44 0020 Undefined Sprite
+44 0022 0,-16,12 0,0,22 16,-16,7
+45 0020 This is a POW/P-switch, which will be blue or silver depending on the extra bit. It's currently set to be blue. Without a patch, custom sprites are not preserved across sublevels, so if you take this through a pipe/door it will become a vanilla P-switch.
+45 0022 0,1,55
+45 0030 This is a POW/P-switch, which will be blue or silver depending on the extra bit. It's currently set to be silver. As of this writing, PIXI does not preserve custom sprite status across sublevels, so if you take this through a pipe/door it will become a vanilla P-switch.
+45 0032 0,1,65
